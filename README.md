@@ -1,4 +1,4 @@
-# Ubirch-avatar-service-client
+# Ubirch-Avatar-Service-Client
 
 This scala rest client should be used to communicate with the ubirch-avatar-service. 
 
