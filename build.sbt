@@ -22,7 +22,7 @@ lazy val avatarServiceClient = (project in file("."))
       url("https://github.com/ubirch/ubirch-avatar-service"),
       "scm:git:git@github.com:ubirch/ubirch-avatar-service.git"
     )),
-    version := "0.1.0-SNAPSHOT",
+    version := "0.6.6-SNAPSHOT",
     testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oD", "-u", "xml-test-reports"),
     (sys.env.get("CLOUDREPO_USER"), sys.env.get("CLOUDREPO_PW")) match {
       case (Some(username), Some(password)) =>
