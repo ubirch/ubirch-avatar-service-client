@@ -1,6 +1,6 @@
 *.class
 *.log
-.iml
+*.iml
 
 # sbt specific
 .cache
