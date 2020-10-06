@@ -3,7 +3,7 @@ package com.ubich.avatar.client.model
 import java.util.UUID
 
 import com.ubirch.avatar.client.model.{Device, DeviceDataRaw}
-import com.ubirch.crypto.hash.HashUtil
+import com.ubirch.util.crypto.hash.HashUtil
 import com.ubirch.util.uuid.UUIDUtil
 import org.joda.time.{DateTime, DateTimeZone}
 import org.json4s.JValue
@@ -20,9 +20,7 @@ object DummyDeviceDataRaw {
            device: Device,
            pubKey: String = "pretend-to-be-a-public-key",
            timestamp: DateTime = DateTime.now,
-           hashedPubKey: String = "pretend-to-be-a-public-key"
-          )
-  : DeviceDataRaw = {
+           hashedPubKey: String = "pretend-to-be-a-public-key"): DeviceDataRaw = {
 
     val p = randomPayload(timestamp)
     val s = DeviceUtil.sign(p)

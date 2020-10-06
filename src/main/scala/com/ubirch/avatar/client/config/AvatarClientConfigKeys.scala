@@ -6,9 +6,8 @@ package com.ubirch.avatar.client.config
   */
 object AvatarClientConfigKeys {
 
-
-  protected val base = "ubirchAvatarService.client"
-  val HOST = s"$base.host"
+  protected val base: String = "ubirchAvatarService.client"
+  val HOST: String = s"$base.host"
 
 }
 

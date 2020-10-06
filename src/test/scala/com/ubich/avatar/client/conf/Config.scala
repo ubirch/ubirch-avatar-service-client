@@ -54,7 +54,6 @@ object Config extends ConfigBase {
 
   def prometheusEnabled: Boolean = config.getBoolean(ConfigKeys.PENABLED)
 
-
   /**
     * The interface the server runs on.
     *

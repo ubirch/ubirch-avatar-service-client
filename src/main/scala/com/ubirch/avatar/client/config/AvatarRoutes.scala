@@ -2,23 +2,23 @@ package com.ubirch.avatar.client.config
 
 object AvatarRoutes {
 
-  val host = AvatarClientConfig.host
+  val host: String = AvatarClientConfig.host
 
-  val urlCheck = s"$host${AvatarRouteKeys.pathCheck}"
+  val urlCheck: String = s"$host${AvatarRouteKeys.pathCheck}"
 
-  val urlDeepCheck = s"$host${AvatarRouteKeys.pathDeepCheck}"
+  val urlDeepCheck: String = s"$host${AvatarRouteKeys.pathDeepCheck}"
 
-  val urlDevice = s"$host${AvatarRouteKeys.pathDevice}"
+  val urlDevice: String = s"$host${AvatarRouteKeys.pathDevice}"
 
-  val urlDeviceClaim = s"$host${AvatarRouteKeys.pathDeviceClaim}"
+  val urlDeviceClaim: String = s"$host${AvatarRouteKeys.pathDeviceClaim}"
 
-  val urlDeviceStub = s"$host${AvatarRouteKeys.pathDeviceStub}"
+  val urlDeviceStub: String = s"$host${AvatarRouteKeys.pathDeviceStub}"
 
-  val urlDeviceUpdate = s"$host${AvatarRouteKeys.pathDeviceUpdate}"
+  val urlDeviceUpdate: String = s"$host${AvatarRouteKeys.pathDeviceUpdate}"
 
-  val urlDeviceUpdateBulk = s"$host${AvatarRouteKeys.pathDeviceBulk}"
+  val urlDeviceUpdateBulk: String = s"$host${AvatarRouteKeys.pathDeviceBulk}"
 
-  def urlDeviceWithId(deviceId: String) = s"$host${AvatarRouteKeys.pathDeviceWithId(deviceId)}"
+  def urlDeviceWithId(deviceId: String): String = s"$host${AvatarRouteKeys.pathDeviceWithId(deviceId)}"
 
-  def urlDataTransferDates(deviceId: String) = s"$host${AvatarRouteKeys.pathDeviceDataTransferDates(deviceId)}"
+  def urlDataTransferDates(deviceId: String): String = s"$host${AvatarRouteKeys.pathDeviceDataTransferDates(deviceId)}"
 }
