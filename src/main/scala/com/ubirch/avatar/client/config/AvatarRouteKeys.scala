@@ -2,32 +2,31 @@ package com.ubirch.avatar.client.config
 
 object AvatarRouteKeys {
 
-  val apiPrefix = "api"
-  val currentVersion = "v1"
-  val serviceName = "avatarService"
-  val check = "check"
-  val deepCheck = "deepCheck"
-  val device = "device"
-  val stub = "stub"
-  val claim = "claim"
-  val update = "update"
-  val bulk = "bulk"
-  val transferDates = "transferDates"
-  val data = "data"
-  val pathPrefix = s"/$apiPrefix/$serviceName/$currentVersion"
-  val pathCheck = s"$pathPrefix/$check"
-  val pathDeepCheck = s"$pathPrefix/$deepCheck"
-  val pathDevice = s"$pathPrefix/$device"
-  val pathDeviceBulk = s"$pathDevice/$update/$bulk"
+  val apiPrefix: String = "api"
+  val currentVersion: String = "v1"
+  val serviceName: String = "avatarService"
+  val check: String = "check"
+  val deepCheck: String = "deepCheck"
+  val device: String = "device"
+  val stub: String = "stub"
+  val claim: String = "claim"
+  val update: String = "update"
+  val bulk: String = "bulk"
+  val transferDates: String = "transferDates"
+  val data: String = "data"
+  val pathPrefix: String = s"/$apiPrefix/$serviceName/$currentVersion"
+  val pathCheck: String = s"$pathPrefix/$check"
+  val pathDeepCheck: String = s"$pathPrefix/$deepCheck"
+  val pathDevice: String = s"$pathPrefix/$device"
+  val pathDeviceBulk: String = s"$pathDevice/$update/$bulk"
 
   def pathDeviceWithId(id: String): String = s"$pathDevice/$id"
 
-  val pathDeviceStub = s"$pathDevice/$stub"
-  val pathDeviceClaim = s"$pathDevice/$claim"
+  val pathDeviceStub: String = s"$pathDevice/$stub"
+  val pathDeviceClaim: String = s"$pathDevice/$claim"
 
   def pathDeviceDataTransferDates(deviceId: String): String = s"$pathDevice/$data/$transferDates/$deviceId"
 
   val pathDeviceUpdate: String = s"$pathDevice/$update"
-
 
 }

@@ -9,12 +9,12 @@ object DeviceTypeUtil {
 
   val defaultKey = "defaultDeviceType"
 
-  val defaultDeviceTypesSet: Set[String] = Set(Const.CALLIOPEMINI, Const.LIGHTSSENSOR, Const.LIGHTSLAMP, Const.ENVIRONMENTSENSOR, Const.AQSENSOR, Const.EMOSENSOR, Const.TRACKLESENSOR, Const.GENERICSENSOR, Const.UNKNOWN_DEVICE
-  )
+  val defaultDeviceTypesSet: Set[String] = Set(Const.CALLIOPEMINI, Const.LIGHTSSENSOR, Const.LIGHTSLAMP, Const.ENVIRONMENTSENSOR, Const.AQSENSOR, Const.EMOSENSOR, Const.TRACKLESENSOR, Const.GENERICSENSOR, Const.UNKNOWN_DEVICE)
 
-  def dataSeries(prefix: String = defaultKey,
-                 elementCount: Int = 5,
-                 startIndex: Int = 0
+  def dataSeries(
+                  prefix: String = defaultKey,
+                  elementCount: Int = 5,
+                  startIndex: Int = 0
                 ): Set[DeviceType] = {
 
     val series: ListBuffer[DeviceType] = ListBuffer()

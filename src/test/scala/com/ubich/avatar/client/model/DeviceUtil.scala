@@ -3,8 +3,8 @@ package com.ubich.avatar.client.model
 import java.util.UUID
 
 import com.ubirch.avatar.client.model.Device
-import com.ubirch.crypto.ecc.EccUtil
-import com.ubirch.crypto.hash.HashUtil
+import com.ubirch.util.crypto.ecc.EccUtil
+import com.ubirch.util.crypto.hash.HashUtil
 import com.ubirch.util.json.JsonFormats
 import org.json4s.native.Serialization.write
 import org.json4s.{Formats, JValue}

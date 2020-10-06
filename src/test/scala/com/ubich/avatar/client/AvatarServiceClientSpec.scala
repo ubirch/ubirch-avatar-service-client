@@ -1,17 +1,15 @@
 package com.ubich.avatar.client
 
-
-
-import com.ubirch.util.deepCheck.model.DeepCheckResponse
-import com.ubirch.util.model.{JsonErrorResponse, JsonResponse}
-import com.ubirch.util.uuid.UUIDUtil
-import org.scalatest.{AsyncFeatureSpec, BeforeAndAfterAll, BeforeAndAfterEach, Matchers}
 import akka.actor.ActorSystem
 import akka.http.scaladsl.{Http, HttpExt}
 import akka.stream.ActorMaterializer
 import com.ubich.avatar.client.conf.Config
 import com.ubich.avatar.client.model.{DummyDeviceDataRaw, DummyDevices}
 import com.ubirch.avatar.client.AvatarServiceClient
+import com.ubirch.util.deepCheck.model.DeepCheckResponse
+import com.ubirch.util.model.{JsonErrorResponse, JsonResponse}
+import com.ubirch.util.uuid.UUIDUtil
+import org.scalatest.{AsyncFeatureSpec, BeforeAndAfterAll, BeforeAndAfterEach, Matchers}
 
 import scala.concurrent.ExecutionContextExecutor
 

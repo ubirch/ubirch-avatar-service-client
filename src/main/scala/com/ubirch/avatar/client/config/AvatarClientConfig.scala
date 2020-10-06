@@ -8,6 +8,6 @@ import com.ubirch.util.config.ConfigBase
   */
 object AvatarClientConfig extends ConfigBase {
 
-  def host = config.getString(AvatarClientConfigKeys.HOST)
+  def host: String = config.getString(AvatarClientConfigKeys.HOST)
 
 }

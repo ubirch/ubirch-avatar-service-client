@@ -82,11 +82,9 @@ case class DeviceDataRaw(
 
 }
 
-case class DeviceDataRawEnvelope(
-                                  validationState: String,
-                                  deviceMessage: DeviceDataRaw,
-                                  signature: Option[String],
-                                  timestamp: DateTime = DateTime.now()
-                                )
+case class DeviceDataRawEnvelope(validationState: String,
+                                 deviceMessage: DeviceDataRaw,
+                                 signature: Option[String],
+                                 timestamp: DateTime = DateTime.now())
 
 case class PayloadV3(c: JValue, p: Array[JValue])
