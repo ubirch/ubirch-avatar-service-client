@@ -36,6 +36,10 @@
     <description>Scala rest client that can be used to communicate with Ubirch Avatar Service</description>
     <url>https://ubirch.com/</url>
 
+    <scm>
+        <url>https://github.com/ubirch/ubirch-avatar-service-client</url>
+    </scm>
+
     <organization>
         <name>ubirch GmbH</name>
         <url>https://ubirch.com/</url>
