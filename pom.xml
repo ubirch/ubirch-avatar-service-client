@@ -73,7 +73,7 @@
         <ubirch-deep-check.version>0.4.2-SNAPSHOT</ubirch-deep-check.version>
         <ubirch-config.version>0.2.5-SNAPSHOT</ubirch-config.version>
         <ubirch-response.version>0.5.2-SNAPSHOT</ubirch-response.version>
-        <ubirch-uuid.version>0.1.4</ubirch-uuid.version>
+        <ubirch-uuid.version>0.1.5-SNAPSHOT</ubirch-uuid.version>
         <akka-http.version>10.1.3</akka-http.version>
         <akka-slf4j.version>2.5.21</akka-slf4j.version>
         <akka-stream.version>2.5.21</akka-stream.version>
@@ -197,7 +197,7 @@
         </repository>
         <repository>
             <id>io.cloudrepo.public</id>
-            <url>https://ubirch.mycloudrepo.io/repositories/mvn-public</url>
+            <url>https://ubirch.mycloudrepo.io/public/repositories/mvn-public</url>
         </repository>
     </repositories>
 
