@@ -46,7 +46,9 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
         case Some(jsonResponse: JsonResponse) =>
           val goInfo = s"${Config.goPipelineName} / ${Config.goPipelineLabel} / ${Config.goPipelineRevision}"
           val expected = JsonResponse(message = s"Welcome to the ubirchAvatarService ( $goInfo )")
-          jsonResponse shouldBe expected
+          jsonResponse.message.startsWith("Welcome to the ubirchAvatarService (") shouldBe true
+          jsonResponse.status shouldBe expected.status
+          jsonResponse.version shouldBe expected.version
 
       }
 

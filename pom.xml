@@ -21,7 +21,7 @@
 
     <groupId>com.ubirch.avatar</groupId>
     <artifactId>ubirch-avatar-service-client_${scala.major.version}</artifactId>
-    <version>0.6.7-SNAPSHOT</version>
+    <version>0.6.8-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <licenses>
@@ -94,6 +94,7 @@
         <maven-surefire-plugin.version>2.7</maven-surefire-plugin.version>
         <scoverage.plugin.version>1.4.0</scoverage.plugin.version>
         <scalatest-maven-plugin.version>1.0</scalatest-maven-plugin.version>
+        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
         <!-- plugins -->
 
     </properties>
@@ -222,6 +223,8 @@
                 <executions>
                     <execution>
                         <goals>
+                            <goal>add-source</goal>
+                            <goal>doc-jar</goal>
                             <goal>compile</goal>
                             <goal>testCompile</goal>
                         </goals>
@@ -235,6 +238,21 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
 
             <!-- copy all dependencies into the target/lib dir for our docker image -->
             <plugin>
