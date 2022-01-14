@@ -9,7 +9,9 @@ import com.ubirch.avatar.client.AvatarServiceClient
 import com.ubirch.util.deepCheck.model.DeepCheckResponse
 import com.ubirch.util.model.{JsonErrorResponse, JsonResponse}
 import com.ubirch.util.uuid.UUIDUtil
-import org.scalatest.{AsyncFeatureSpec, BeforeAndAfterAll, BeforeAndAfterEach, Matchers}
+import org.scalatest.featurespec.AsyncFeatureSpec
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -33,9 +35,9 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
   // TODO add database clean up before each test (elasticsearch, redis, neo4j and mongo)
 
-  feature("check()") {
+  Feature("check()") {
 
-    scenario("check without errors") {
+    Scenario("check without errors") {
 
       // test
       AvatarServiceClient.check() map {
@@ -56,9 +58,9 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
   }
 
-  feature("deepCheck()") {
+  Feature("deepCheck()") {
 
-    scenario("check without errors") {
+    Scenario("check without errors") {
 
       // test
       AvatarServiceClient.deepCheck() map { deepCheckResponse =>
@@ -72,16 +74,16 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
   }
 
   /*
-  feature("deviceUpdatePOST()") {
+  Feature("deviceUpdatePOST()") {
 
     // TODO add tests
 
   }
   */
 
-  feature("deviceUpdateBulkPOST()") {
+  Feature("deviceUpdateBulkPOST()") {
 
-    scenario("without any token --> error") {
+    Scenario("without any token --> error") {
 
       // prepare
       val device = DummyDevices.device()
@@ -104,9 +106,9 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
   }
 
-  feature("devicePOST()") {
+  Feature("devicePOST()") {
 
-    scenario("without any token --> error") {
+    Scenario("without any token --> error") {
 
       // prepare
       val device = DummyDevices.device()
@@ -126,7 +128,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (oidc) --> error") {
+    Scenario("invalid auth (oidc) --> error") {
 
       // prepare
       val device = DummyDevices.device()
@@ -146,7 +148,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (ubirch token) --> error") {
+    Scenario("invalid auth (ubirch token) --> error") {
 
       // prepare
       val device = DummyDevices.device()
@@ -166,17 +168,17 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    // TODO scenario("valid auth (oidc)        ; device does not exist --> success") {}
-    // TODO scenario("valid auth (ubirch token); device does not exist --> success") {}
+    // TODO Scenario("valid auth (oidc)        ; device does not exist --> success") {}
+    // TODO Scenario("valid auth (ubirch token); device does not exist --> success") {}
 
-    // TODO scenario("valid auth (oidc)        ; device exists --> success") {}
-    // TODO scenario("valid auth (ubirch token); device exists --> success") {}
+    // TODO Scenario("valid auth (oidc)        ; device exists --> success") {}
+    // TODO Scenario("valid auth (ubirch token); device exists --> success") {}
 
   }
 
-  feature("deviceStubGET()") {
+  Feature("deviceStubGET()") {
 
-    scenario("without any token --> error") {
+    Scenario("without any token --> error") {
 
       // test
       AvatarServiceClient.deviceStubGET() map {
@@ -193,7 +195,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (oidc) --> error") {
+    Scenario("invalid auth (oidc) --> error") {
 
       // test
       AvatarServiceClient.deviceStubGET(oidcToken = Some("invalid-token")) map {
@@ -210,7 +212,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (ubirch token) --> error") {
+    Scenario("invalid auth (ubirch token) --> error") {
 
       // test
       AvatarServiceClient.deviceStubGET(ubirchToken = Some("invalid-token")) map {
@@ -227,17 +229,17 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    // TODO scenario("valid auth (oidc)        ; has no devices --> empty device stub list") {}
-    // TODO scenario("valid auth (ubirch token); has no devices --> empty device stub list") {}
+    // TODO Scenario("valid auth (oidc)        ; has no devices --> empty device stub list") {}
+    // TODO Scenario("valid auth (ubirch token); has no devices --> empty device stub list") {}
 
-    // TODO scenario("valid auth (oidc)        ; has devices --> non-empty device stub list") {}
-    // TODO scenario("valid auth (ubirch token); has devices --> non-empty device stub list") {}
+    // TODO Scenario("valid auth (oidc)        ; has devices --> non-empty device stub list") {}
+    // TODO Scenario("valid auth (ubirch token); has devices --> non-empty device stub list") {}
 
   }
 
-  feature("deviceGET()") {
+  Feature("deviceGET()") {
 
-    scenario("without any token --> error") {
+    Scenario("without any token --> error") {
 
       // test
       AvatarServiceClient.deviceGET() map {
@@ -254,7 +256,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (oidc) --> error") {
+    Scenario("invalid auth (oidc) --> error") {
 
       // test
       AvatarServiceClient.deviceGET(oidcToken = Some("invalid-token")) map {
@@ -271,7 +273,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (ubirch token) --> error") {
+    Scenario("invalid auth (ubirch token) --> error") {
 
       // test
       AvatarServiceClient.deviceGET(ubirchToken = Some("invalid-token")) map {
@@ -288,17 +290,17 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    // TODO scenario("valid auth (oidc);         has no devices --> empty device list") {}
-    // TODO scenario("valid auth (ubirch token); has no devices --> empty device list") {}
+    // TODO Scenario("valid auth (oidc);         has no devices --> empty device list") {}
+    // TODO Scenario("valid auth (ubirch token); has no devices --> empty device list") {}
 
-    // TODO scenario("valid auth (oidc);         has devices --> non-empty device list") {}
-    // TODO scenario("valid auth (ubirch token); has devices --> non-empty device list") {}
+    // TODO Scenario("valid auth (oidc);         has devices --> non-empty device list") {}
+    // TODO Scenario("valid auth (ubirch token); has devices --> non-empty device list") {}
 
   }
 
-  feature("deviceIdPUT()") {
+  Feature("deviceIdPUT()") {
 
-    scenario("without any token --> error") {
+    Scenario("without any token --> error") {
 
       // prepare
       val device = DummyDevices.device()
@@ -318,7 +320,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (oidc) --> error") {
+    Scenario("invalid auth (oidc) --> error") {
 
       // prepare
       val device = DummyDevices.device()
@@ -338,7 +340,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (ubirch token) --> error") {
+    Scenario("invalid auth (ubirch token) --> error") {
 
       // prepare
       val device = DummyDevices.device()
@@ -358,20 +360,20 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    // TODO scenario("valid auth(oidc)        ; device does not exist --> error") {}
-    // TODO scenario("valid auth(ubirch token); device does not exist --> error") {}
+    // TODO Scenario("valid auth(oidc)        ; device does not exist --> error") {}
+    // TODO Scenario("valid auth(ubirch token); device does not exist --> error") {}
 
-    // TODO scenario("valid auth (oidc); device exists and belongs to same user --> success") {}
-    // TODO scenario("valid auth (ubirch token); device exists and belongs to same user --> success") {}
+    // TODO Scenario("valid auth (oidc); device exists and belongs to same user --> success") {}
+    // TODO Scenario("valid auth (ubirch token); device exists and belongs to same user --> success") {}
 
-    // TODO scenario("valid auth (oidc)        ; device exists but belongs to another user --> error") {}
-    // TODO scenario("valid auth (ubirch token); device exists but belongs to another user --> error") {}
+    // TODO Scenario("valid auth (oidc)        ; device exists but belongs to another user --> error") {}
+    // TODO Scenario("valid auth (ubirch token); device exists but belongs to another user --> error") {}
 
   }
 
-  feature("deviceIdDELETE()") {
+  Feature("deviceIdDELETE()") {
 
-    scenario("without any token --> error") {
+    Scenario("without any token --> error") {
 
       // test
       AvatarServiceClient.deviceIdDELETE(deviceId = UUIDUtil.uuid) map {
@@ -388,7 +390,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (oidc) --> error") {
+    Scenario("invalid auth (oidc) --> error") {
 
       // test
       AvatarServiceClient.deviceIdDELETE(deviceId = UUIDUtil.uuid, oidcToken = Some("invalid-token")) map {
@@ -405,7 +407,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (ubirch token) --> error") {
+    Scenario("invalid auth (ubirch token) --> error") {
 
       // test
       AvatarServiceClient.deviceIdDELETE(deviceId = UUIDUtil.uuid, ubirchToken = Some("invalid-token")) map {
@@ -422,20 +424,20 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    // TODO scenario("valid auth (oidc)        ; device does not exist --> success") {}
-    // TODO scenario("valid auth (ubirch token); device does not exist --> success") {}
+    // TODO Scenario("valid auth (oidc)        ; device does not exist --> success") {}
+    // TODO Scenario("valid auth (ubirch token); device does not exist --> success") {}
 
-    // TODO scenario("valid auth (oidc)        ; device belongs to another user --> error") {}
-    // TODO scenario("valid auth (ubirch token); device belongs to another user --> error") {}
+    // TODO Scenario("valid auth (oidc)        ; device belongs to another user --> error") {}
+    // TODO Scenario("valid auth (ubirch token); device belongs to another user --> error") {}
 
-    // TODO scenario("valid auth (oidc)        ; device belongs to same user --> success") {}
-    // TODO scenario("valid auth (ubirch token); device belongs to same user --> success") {}
+    // TODO Scenario("valid auth (oidc)        ; device belongs to same user --> success") {}
+    // TODO Scenario("valid auth (ubirch token); device belongs to same user --> success") {}
 
   }
 
-  feature("claimDevicePUT()") {
+  Feature("claimDevicePUT()") {
 
-    scenario("without any token --> error") {
+    Scenario("without any token --> error") {
 
       // test
       AvatarServiceClient.claimDevicePUT(hwDeviceId = UUIDUtil.uuidStr) map {
@@ -452,7 +454,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (oidc) --> error") {
+    Scenario("invalid auth (oidc) --> error") {
 
       // test
       AvatarServiceClient.claimDevicePUT(hwDeviceId = UUIDUtil.uuidStr, oidcToken = Some("invalid-token")) map {
@@ -469,7 +471,7 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    scenario("invalid auth (ubirch token) --> error") {
+    Scenario("invalid auth (ubirch token) --> error") {
 
       // test
       AvatarServiceClient.claimDevicePUT(hwDeviceId = UUIDUtil.uuidStr, ubirchToken = Some("invalid-token")) map {
@@ -486,14 +488,14 @@ class AvatarServiceClientSpec extends AsyncFeatureSpec
 
     }
 
-    // TODO scenario("valid auth(oidc)        ; device does not exist --> error") {}
-    // TODO scenario("valid auth(ubirch token); device does not exist --> error") {}
+    // TODO Scenario("valid auth(oidc)        ; device does not exist --> error") {}
+    // TODO Scenario("valid auth(ubirch token); device does not exist --> error") {}
 
-    // TODO scenario("valid auth (oidc)        ; device has been claimed already --> ???") {}
-    // TODO scenario("valid auth (ubirch token); device has been claimed already --> ???") {}
+    // TODO Scenario("valid auth (oidc)        ; device has been claimed already --> ???") {}
+    // TODO Scenario("valid auth (ubirch token); device has been claimed already --> ???") {}
 
-    // TODO scenario("valid auth (oidc)        ; device has not been claimed --> success") {}
-    // TODO scenario("valid auth (ubirch token); device has not been claimed --> success") {}
+    // TODO Scenario("valid auth (oidc)        ; device has not been claimed --> success") {}
+    // TODO Scenario("valid auth (ubirch token); device has not been claimed --> success") {}
 
   }
 
