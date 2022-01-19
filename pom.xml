@@ -21,7 +21,7 @@
 
     <groupId>com.ubirch.avatar</groupId>
     <artifactId>ubirch-avatar-service-client_${scala.major.version}</artifactId>
-    <version>0.6.8-SNAPSHOT</version>
+    <version>0.6.8</version>
     <packaging>jar</packaging>
 
     <licenses>
@@ -69,11 +69,11 @@
         <scala.compat.version>2.13</scala.compat.version>
         <scalatest.version>3.2.10</scalatest.version>
 
-        <ubirch-crypto.version>0.5.4-SNAPSHOT</ubirch-crypto.version>
-        <ubirch-deep-check.version>0.4.2-SNAPSHOT</ubirch-deep-check.version>
-        <ubirch-config.version>0.2.5-SNAPSHOT</ubirch-config.version>
-        <ubirch-response.version>0.5.2-SNAPSHOT</ubirch-response.version>
-        <ubirch-uuid.version>0.1.5-SNAPSHOT</ubirch-uuid.version>
+        <ubirch-crypto.version>0.5.4</ubirch-crypto.version>
+        <ubirch-deep-check.version>0.4.2</ubirch-deep-check.version>
+        <ubirch-config.version>0.2.5</ubirch-config.version>
+        <ubirch-response.version>0.5.2</ubirch-response.version>
+        <ubirch-uuid.version>0.1.5</ubirch-uuid.version>
         <akka-http.version>10.2.7</akka-http.version>
         <akka-slf4j.version>2.6.18</akka-slf4j.version>
         <akka-stream.version>2.6.18</akka-stream.version>
@@ -237,21 +237,6 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${maven-source-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-
             <!-- copy all dependencies into the target/lib dir for our docker image -->
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -332,6 +317,20 @@
                 <configuration>
                     <skip>false</skip>
                 </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
